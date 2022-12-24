@@ -1,16 +1,19 @@
 import Zombie from '../zombie';
 
-test('Zombie', () => {
-  const values = {
-    name: 'ALex',
+test('Create Zombie', () => {
+  const character = 'name';
+  const type = 'Zombie';
+
+  const expected = {
+    name: 'name',
     type: 'Zombie',
-    attack: 40,
-    defence: 10,
     health: 100,
     level: 1,
+    attack: 40,
+    defence: 10,
   };
 
-  const result = new Zombie('ALex');
+  const recevied = new Zombie(character, type);
 
-  expect(result).toEqual(values);
+  expect(recevied).toEqual(expected);
 });

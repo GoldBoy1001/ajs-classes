@@ -1,48 +1,38 @@
 import Character from '../character';
 
-test('Character name - number', () => {
-   const name = 1000;
+test('Create Character', () => {
+  const name = 'name';
+  const type = 'Bowman';
 
-   function characterFunc() {
-      return new Character(name);
-   }
+  const expected = {
+    name,
+    type,
+    health: 100,
+    level: 1,
+  };
 
-   expect(characterFunc).toThrow('Имя не является строкой');
+  const recevied = new Character(name, type);
+
+  expect(recevied).toEqual(expected);
 });
 
-test('Character name 1 letter', () => {
-   const name = 'P';
+test('Error Character big length', () => {
+  const name = '12345678910';
+  const type = 'Bowman';
 
-   function characterFunc() {
-      return new Character(name);
-   }
-
-   expect(characterFunc).toThrow(
-      'Минимальная длина имени 2 символа, макимальная до 10',
-   );
+  expect(() => new Character(name, type)).toThrow(new Error('Неверная длинна имени'));
 });
 
-test('Character name 11 letters', () => {
-   const name = 'Мефистофель';
+test('Error Character small length', () => {
+  const name = '1';
+  const type = 'Bowman';
 
-   function characterFunc() {
-      return new Character(name);
-   }
-
-   expect(characterFunc).toThrow(
-      'Минимальная длина имени 2 символа, макимальная до 10',
-   );
+  expect(() => new Character(name, type)).toThrow(new Error('Неверная длинна имени'));
 });
 
-test('Character appropriate', () => {
-   const values = {
-      type: 'Bowman',
-      name: 'ALex',
-      health: 100,
-      level: 1,
-   };
+test('Error Character type', () => {
+  const name = 'name';
+  const type = 'Bow';
 
-   const result = new Character('ALex');
-
-   expect(result).toEqual(values);
+  expect(() => new Character(name, type)).toThrow(new Error('Неверно указан тип'));
 });

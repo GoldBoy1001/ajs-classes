@@ -1,16 +1,19 @@
 import Undead from '../undead';
 
-test('Undead', () => {
-  const values = {
-    name: 'ALex',
+test('Create Undead', () => {
+  const character = 'name';
+  const type = 'Undead';
+
+  const expected = {
+    name: 'name',
     type: 'Undead',
-    attack: 25,
-    defence: 25,
     health: 100,
     level: 1,
+    attack: 25,
+    defence: 25,
   };
 
-  const result = new Undead('ALex');
+  const recevied = new Undead(character, type);
 
-  expect(result).toEqual(values);
+  expect(recevied).toEqual(expected);
 });

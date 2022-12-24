@@ -1,16 +1,19 @@
 import Magician from '../magician';
 
-test('Magician', () => {
-  const values = {
-    name: 'ALex',
+test('Create Magician', () => {
+  const character = 'name';
+  const type = 'Magician';
+
+  const expected = {
+    name: 'name',
     type: 'Magician',
-    attack: 10,
-    defence: 40,
     health: 100,
     level: 1,
+    attack: 10,
+    defence: 40,
   };
 
-  const result = new Magician('ALex');
+  const recevied = new Magician(character, type);
 
-  expect(result).toEqual(values);
+  expect(recevied).toEqual(expected);
 });

@@ -1,18 +1,18 @@
 export default class Character {
-   constructor(name) {
-      const type = ['Bowman', 'Swordsman', 'Magician', 'Daemon', 'Undead', 'Zombie'];
-      if (typeof name !== 'string') {
-         throw new Error('Имя не является строкой');
-      }
-      if (name.length < 2 || name.length > 10) {
-         throw new Error('Минимальная длина имени 2 символа, макимальная до 10');
-      }
-      if (type.includes(values) === false) {
-         throw new Error('Такого типа воина не существует');
-      }
+  constructor(character, type) {
+    if (character.length < 2 || character.length > 10) {
+      throw new Error('Неверная длинна имени');
+    } else {
+      this.name = character;
+    }
+    const types = ['Bowman', 'Swordsman', 'Magician', 'Daemon', 'Undead', 'Zombie'];
+    if (!types.includes(type)) {
+      throw new Error('Неверно указан тип');
+    } else {
       this.type = type;
-      this.name = name;
-      this.health = 100;
-      this.level = 1;
-   }
+    }
+
+    this.health = 100;
+    this.level = 1;
+  }
 }

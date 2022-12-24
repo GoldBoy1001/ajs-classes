@@ -1,16 +1,19 @@
 import Bowman from '../bowman';
 
-test('Bowman', () => {
-  const values = {
-    name: 'ALex',
+test('Create Daemon', () => {
+  const character = 'name';
+  const type = 'Bowman';
+
+  const expected = {
+    name: 'name',
     type: 'Bowman',
-    attack: 25,
-    defence: 25,
     health: 100,
     level: 1,
+    attack: 25,
+    defence: 25,
   };
 
-  const result = new Bowman('ALex');
+  const recevied = new Bowman(character, type);
 
-  expect(result).toEqual(values);
+  expect(recevied).toEqual(expected);
 });

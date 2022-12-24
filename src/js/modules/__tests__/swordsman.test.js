@@ -1,16 +1,19 @@
 import Swordsman from '../swordsman';
 
-test('Swordsman', () => {
-  const values = {
-    name: 'ALex',
+test('Create Swordsman', () => {
+  const character = 'name';
+  const type = 'Swordsman';
+
+  const expected = {
+    name: 'name',
     type: 'Swordsman',
-    attack: 40,
-    defence: 10,
     health: 100,
     level: 1,
+    attack: 40,
+    defence: 10,
   };
 
-  const result = new Swordsman('ALex');
+  const recevied = new Swordsman(character, type);
 
-  expect(result).toEqual(values);
+  expect(recevied).toEqual(expected);
 });
